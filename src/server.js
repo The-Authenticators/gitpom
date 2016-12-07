@@ -1,6 +1,6 @@
 const Hapi = require('hapi');
 const Inert = require('inert');
-const env2 = require('env2');
+const env = require('env2')('./config.env');
 const Vision = require('vision');
 const Path = require('path');
 
@@ -36,7 +36,7 @@ server.register([Inert, Vision], (err) => {
     layoutPath: '../views/layout/',
     helpersPath: '../views/helpers/',
     partialsPath: '../views/partials/',
-    layout: 'layout'
+    layout: 'default'
   });
 
   server.route(require('./routes/index.js'));
