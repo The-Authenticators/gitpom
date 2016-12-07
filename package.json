@@ -1,0 +1,36 @@
+{
+  "name": "gitpom",
+  "version": "1.0.0",
+  "description": "A pomodoro timer which integrates with github issues for mad efficiency and cool stuff.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/The-Authenticators/gitpom.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/The-Authenticators/gitpom/issues"
+  },
+  "homepage": "https://github.com/The-Authenticators/gitpom#readme",
+  "devDependencies": {
+    "eslint": "^3.11.1",
+    "eslint-config-semistandard": "^7.0.0",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-react": "^6.8.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "tape": "^4.6.3"
+  },
+  "dependencies": {
+    "handlebars": "^4.0.6",
+    "hapi": "^16.0.1",
+    "hapi-auth-cookie": "^6.1.1",
+    "inert": "^4.0.3",
+    "request": "^2.79.0",
+    "vision": "^4.1.1"
+  }
+}
