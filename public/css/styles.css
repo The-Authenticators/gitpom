@@ -1,0 +1,58 @@
+body {
+  background-color: antique-white;
+  font-family: futura;
+}
+/*<-- nav bar >*/
+
+.nav {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  padding: 1rem;
+  width: 88%;
+  margin: auto;
+}
+
+.nav__title {
+  width: 300px;
+  display: flex;
+}
+
+.nav__logo {
+  height: 4rem;
+}
+
+/*Welcome zone*/
+
+.welcome {
+  width: 80%;
+  margin: auto
+}
+
+.welcome__message {
+
+}
+
+/*repos */
+
+.repos {
+  width: 80%;
+  margin: auto;
+}
+
+/* footer */
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 3rem;
+  background-color: #E88D67;
+  display: flex;
+}
+
+.footer__text {
+  font-size: 1.2rem;
+  margin: 0.7rem auto;
+  text-align: center;
+}
