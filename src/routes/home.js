@@ -1,3 +1,5 @@
+const getRepos = require('../lib/getRepos.js');
+
 module.exports = {
   path: '/',
   method: 'GET',
@@ -12,6 +14,15 @@ module.exports = {
       title: 'GitPom - welcome!',
       loggedIn: req.auth.isAuthenticated
     };
-    rep.view('home', homeObj);
+
+    if (req.auth.isAuthenticated) {
+      getRepos('jwhiles', (err, res, body) => {
+        if (err) { throw err; }
+        const repos = { repos: JSON.parse(body) };
+        rep.view('home', Object.assign(homeObj, repos));
+      });
+    } else {
+      rep.view('home', homeObj);
+    }
   }
 };

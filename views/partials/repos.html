@@ -5,7 +5,7 @@
     <label for="select_repo">Repos</label>
     <select name="repos" class="repos__select" id="select_repo">
       {{#each repos}}
-      <option value="{{issue_id}}" class="repos__select-option">{{issue_name}}</option>
+      <option value="{{this.id}}" class="repos__select-option">{{this.name}}</option>
       {{/each}}
     </select>
     <input type="submit" value="See issues"/>
