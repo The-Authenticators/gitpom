@@ -1,5 +1,8 @@
 const Request = require('request');
-const env = require('env2')('./config.env');
+const env2 = require('env2');
+const HapiCookie = require('hapi-auth-cookie');
+
+env2('./config.env');
 
 module.exports = {
   path: '/welcome',
@@ -22,8 +25,8 @@ module.exports = {
       const userDetails = {
         access_token: parsed.access_token
       };
-      console.log(userDetails);
-      rep(userDetails);
+      req.cookieAuth.set({access_token: userDetails.access_token});
+      rep.redirect('/');
     });
   }
 };
