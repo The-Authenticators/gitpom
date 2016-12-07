@@ -1,10 +1,21 @@
 const Hapi = require('hapi');
 const Inert = require('inert');
-const env = require('env2')('./config.env');
+const env2 = require('env2');
 const Vision = require('vision');
 const Path = require('path');
+const HapiCookie = require('hapi-auth-cookie');
 
 const server = new Hapi.Server();
+
+env2('./config.env');
+
+const cookieOptions = {
+  password: 'thisissoawesomewearetheauthenticatorsandwerock',
+  cookie: 'ghAuthCookie',
+  ttl: 24 * 60 * 60 * 1000,
+  isSecure: process.env.NODE_ENV === 'PRODUCTION',
+  isHttpOnly: true
+};
 
 server.connection({
   port: process.env.PORT || 8080,
@@ -15,7 +26,7 @@ server.connection({
   }
 });
 
-server.register([Inert, Vision], (err) => {
+server.register([Inert, Vision, HapiCookie], (err) => {
   if (err) throw err;
 
   server.state('gitCookie', {
@@ -38,7 +49,7 @@ server.register([Inert, Vision], (err) => {
     partialsPath: '../views/partials/',
     layout: 'default'
   });
-
+  server.auth.strategy('session', 'cookie', cookieOptions);
   server.route(require('./routes/index.js'));
 });
 
