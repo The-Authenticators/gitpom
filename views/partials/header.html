@@ -1,0 +1,12 @@
+<nav class="nav">
+  <a href="/"><img class="nav__logo" src="/images/pom_logo.png" alt="GitPom logo" title="GitPom" /></a>
+  <h1>GitPom</h1>
+  <div class="nav__controls">
+    {{#if loggedIn}}
+      <a class="nav__username nav__item" href="/user/{{current_user_id}}">{{current_user}}</a>
+      <a class="nav__logout nav__item" href="/logout">Logout</a>
+    {{else}}
+      <a class="nav__login nav__item" href="/login">Login</a>
+    {{/if}}
+  </div>
+</nav>
