@@ -4,7 +4,8 @@
   "description": "A pomodoro timer which integrates with github issues for mad efficiency and cool stuff.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/start.js",
+    "test": ""
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,8 @@
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-react": "^6.8.0",
     "eslint-plugin-standard": "^2.0.1",
-    "tape": "^4.6.3"
+    "tape": "^4.6.3",
+    "tap-spec": "^4.1.1"
   },
   "dependencies": {
     "env2": "^2.1.1",
