@@ -3,6 +3,12 @@ const QueryString = require('querystring');
 module.exports = {
   path: '/login',
   method: 'GET',
+  config: {
+    auth: {
+      mode: 'try',
+      strategy: 'session'
+    }
+  },
   handler: (req, rep) => {
     const gitUrl = `https://github.com/login/oauth/authorize`;
     const queryParams = QueryString.stringify({
