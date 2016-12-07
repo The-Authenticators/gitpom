@@ -2,5 +2,6 @@ module.exports = [
   require('./home.js'),
   require('./login.js'),
   require('./logout.js'),
-  require('./welcome.js')
+  require('./welcome.js'),
+  require('./static.js')
 ];
