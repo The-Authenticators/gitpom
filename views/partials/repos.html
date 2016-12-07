@@ -1,7 +1,7 @@
 <section class="repos">
   {{#if repos}}
   <h2 class="repos__header">Choose a repo to get started</h2>
-  <form method="get" action="{{url}}">
+  <form method="get" action="/repo/">
     <label for="select_repo">Repos</label>
     <select name="repos" class="repos__select" id="select_repo">
       {{#each repos}}
