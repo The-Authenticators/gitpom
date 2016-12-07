@@ -1,0 +1,15 @@
+<section class="repos">
+  {{#if repos}}
+  <h2 class="repos__header">Choose a repo to get started</h2>
+  <form method="get" action="{{url}}">
+    <label for="select_repo">Repos</label>
+    <select name="repos" class="repos__select" id="select_repo">
+      {{#each repos}}
+        <option class="repos__select-option">{{name}}</option>
+      {{/each}}
+    </select>
+    <input type="submit" value="See issues"/>
+  </form>
+  {{else}}
+  <p>Looks like you're not working on any repos yet! Go to <a href="www.github.com" target="blank" title="GitHub">GitHub</a> and create one!</p>
+</section>
