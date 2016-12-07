@@ -8,9 +8,10 @@ module.exports = {
     }
   },
   handler: (req, rep) => {
-    if (req.auth.isAuthenticated) {
-      return rep('hello' + req.auth.credentials.access_token);
-    }
-    rep('hello');
+    const homeObj = {
+      title: 'GitPom - welcome!',
+      loggedIn: req.auth.isAuthenticated
+    };
+    rep.view('home', homeObj);
   }
 };
