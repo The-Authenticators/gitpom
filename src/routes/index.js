@@ -1,7 +1,5 @@
-module.exports = [{
-  path: '/',
-  method: 'GET',
-  handler: (req, rep) => {
-    rep('hi');
-  }
-}];
+module.exports = [
+  require('./home.js'),
+  require('./login.js'),
+  require('./logout.js')
+];
