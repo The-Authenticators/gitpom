@@ -1,11 +1,11 @@
 <section class="repos">
   {{#if repos}}
   <h2 class="repos__header">Choose a repo to get started</h2>
-  <form method="get" action="/repo/">
+  <form method="get" action="/repo">
     <label for="select_repo">Repos</label>
-    <select name="repos" class="repos__select" id="select_repo">
+    <select name="repo" class="repos__select" id="select_repo">
       {{#each repos}}
-      <option value="{{this.id}}" class="repos__select-option">{{this.name}}</option>
+      <option value="{{this.owner.login}} {{this.name}} {{this.url}}" class="repos__select-option">{{this.name}}</option>
       {{/each}}
     </select>
     <input type="submit" value="See issues"/>
