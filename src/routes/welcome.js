@@ -21,7 +21,6 @@ module.exports = {
         code: req.query.code
       }
     }, (err, res, body) => {
-      console.log(res);
       if (err) throw err;
       let parsed = JSON.parse(body);
       const userToken = {

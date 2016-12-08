@@ -10,7 +10,6 @@ module.exports = {
     }
   },
   handler: (req, rep) => {
-    console.log(req);
     const gitUrl = `https://github.com/login/oauth/authorize`;
     const queryParams = QueryString.stringify({
       'client_id': process.env.CLIENT_ID,
