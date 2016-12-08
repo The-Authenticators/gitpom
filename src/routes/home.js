@@ -21,7 +21,6 @@ module.exports = {
         if (err) { throw err; }
         const currentUser = { userName: req.auth.credentials.userName };
         const repos = { repos: JSON.parse(body) };
-        console.log(repos);
         rep.view('home', Object.assign(homeObj, repos, currentUser));
       });
     } else {
