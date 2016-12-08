@@ -1,6 +1,6 @@
 body {
   background-color: antique-white;
-  font-family: futura;
+  font-family: 'Didact Gothic', sans-serif;
   box-sizing: border-box;
   position: relative;
   margin: 0;
@@ -13,8 +13,6 @@ a {
   cursor: pointer;
 }
 /*<-- nav bar >*/
-
-
 
 .nav {
   display: flex;
