@@ -12,7 +12,7 @@ module.exports = {
     Request.post({
       headers: {
         // as recommended by the API documentation
-        Accept: `application/vnd.github.v3+json`
+        Accept: `application/json`
       },
       url: accessUrl,
       form: {
@@ -21,6 +21,7 @@ module.exports = {
         code: req.query.code
       }
     }, (err, res, body) => {
+      console.log(res);
       if (err) throw err;
       let parsed = JSON.parse(body);
       const userToken = {
@@ -30,7 +31,7 @@ module.exports = {
         headers: {
           'User-Agent': 'GitPom',
           // as recommended by the API documentation
-          Accept: `application/vnd.github.v3+json`,
+          Accept: `application/json`,
           Authorization: `token ${userToken.access_token}`
         },
         url: `https://api.github.com/user`
