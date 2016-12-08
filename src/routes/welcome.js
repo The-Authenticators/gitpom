@@ -53,9 +53,10 @@ module.exports = {
           avatarUrl: parsed.avatar_url,
           accessToken: gitHubAccessToken
         };
-        // make a jwt
+        // make a jwt : (payload, key, options)
         const webToken = jwt.sign(userDetails, process.env.KEY, {});
-        rep.redirect('/').state('jwt', webToken, cookieOptions);
+        rep.redirect('/').header('Authorization', webToken);
+        // .state('jwt', webToken, cookieOptions);
       });
     });
   }

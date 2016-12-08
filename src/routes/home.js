@@ -5,14 +5,14 @@ module.exports = {
   method: 'GET',
   config: {
     auth: {
-      mode: 'try', // try to go to page even if the strategy is not loaded
+      mode: 'try',
       strategy: 'jwt'
     }
   },
   handler: (req, rep) => {
     const homeObj = {
       title: 'GitPom - welcome!',
-      loggedIn: req.auth.isAuthenticated
+      loggedIn: !(req.auth)
     };
 
     console.log(req.auth);

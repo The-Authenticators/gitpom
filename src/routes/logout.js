@@ -1,8 +1,13 @@
 module.exports = {
   path: '/logout',
   method: 'GET',
+  config: {
+    auth: {
+      mode: 'try',
+      strategy: 'jwt'
+    }
+  },
   handler: (req, rep) => {
-    req.cookieAuth.clear();
-    rep.redirect('/');
+    rep.redirect('/').unstate('jwt', {});
   }
 };

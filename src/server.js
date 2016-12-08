@@ -45,11 +45,15 @@ server.register([Inert, Vision, jwt2], (err) => {
     partialsPath: '../views/partials/',
     layout: 'default'
   });
-  server.auth.strategy('jwt', 'jwt', true, {
+
+  server.auth.strategy('jwt', 'jwt', {
     key: process.env.KEY,
     validateFunc: validate,
-    verifyOptions: { ignoreExpiration: true, algorithms: ['HS256'] }
+    verifyOptions: { algorithms: ['HS256'] }
   });
+
+  server.auth.default('jwt');
+
   server.route(require('./routes/index.js'));
 });
 
