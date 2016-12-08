@@ -11,7 +11,8 @@ module.exports = {
     const accessUrl = `https://github.com/login/oauth/access_token`;
     Request.post({
       headers: {
-        accept: 'application/json'
+        // as recommended by the API documentation
+        Accept: `application/vnd.github.v3+json`
       },
       url: accessUrl,
       form: {
