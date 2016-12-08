@@ -3,18 +3,14 @@ const Inert = require('inert');
 const env2 = require('env2');
 const Vision = require('vision');
 const Path = require('path');
-const HapiCookie = require('hapi-auth-cookie');
+const jwt2 = require('hapi-auth-jwt2');
 
 const server = new Hapi.Server();
 
 env2('./config.env');
 
-const cookieOptions = {
-  password: 'thisissoawesomewearetheauthenticatorsandwerock',
-  cookie: 'ghAuthCookie',
-  ttl: 24 * 60 * 60 * 1000,
-  isSecure: process.env.NODE_ENV === 'PRODUCTION',
-  isHttpOnly: true
+const validate = (decoded, request, cb) => {
+  cb(null, true);
 };
 
 server.connection({
@@ -26,17 +22,17 @@ server.connection({
   }
 });
 
-server.register([Inert, Vision, HapiCookie], (err) => {
+server.register([Inert, Vision, jwt2], (err) => {
   if (err) throw err;
 
-  server.state('gitCookie', {
-    ttl: 1000 * 60 * 60 * 24,
-    isSecure: false,
-    isHttpOnly: false,
-    encoding: 'base64json',
-    clearInvalid: false,
-    strictHeader: true
-  });
+  // server.state('gitCookie', {
+  //   ttl: 1000 * 60 * 60 * 24,
+  //   isSecure: false,
+  //   isHttpOnly: false,
+  //   encoding: 'base64json',
+  //   clearInvalid: false,
+  //   strictHeader: true
+  // });
 
   server.views({
     engines: {
@@ -49,7 +45,11 @@ server.register([Inert, Vision, HapiCookie], (err) => {
     partialsPath: '../views/partials/',
     layout: 'default'
   });
-  server.auth.strategy('session', 'cookie', cookieOptions);
+  server.auth.strategy('jwt', 'jwt', true, {
+    key: process.env.KEY,
+    validateFunc: validate,
+    verifyOptions: { ignoreExpiration: true, algorithms: ['HS256'] }
+  });
   server.route(require('./routes/index.js'));
 });
 

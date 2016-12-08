@@ -6,7 +6,7 @@ module.exports = {
   config: {
     auth: {
       mode: 'try', // try to go to page even if the strategy is not loaded
-      strategy: 'session'
+      strategy: 'jwt'
     }
   },
   handler: (req, rep) => {
@@ -14,6 +14,8 @@ module.exports = {
       title: 'GitPom - welcome!',
       loggedIn: req.auth.isAuthenticated
     };
+
+    console.log(req.auth);
 
     if (req.auth.isAuthenticated) {
       // add cookie info here!

@@ -1,9 +1,12 @@
 module.exports = {
   method: 'GET',
   path: '/{file*}',
-  handler: {
-    directory: {
-      path: '.'
+  config: {
+    auth: false,
+    handler: {
+      directory: {
+        path: '.'
+      }
     }
   }
 };

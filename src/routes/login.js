@@ -5,8 +5,7 @@ module.exports = {
   method: 'GET',
   config: {
     auth: {
-      mode: 'try',
-      strategy: 'session'
+      mode: 'try'
     }
   },
   handler: (req, rep) => {

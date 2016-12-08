@@ -1,12 +1,26 @@
 const Request = require('request');
 const env2 = require('env2');
 const HapiCookie = require('hapi-auth-cookie');
+const jwt = require('jsonwebtoken');
 
 env2('./config.env');
+
+const cookieOptions = {
+  ttl: 24 * 60 * 60 * 1000,
+  isSecure: process.env.NODE_ENV === 'PRODUCTION',
+  isHttpOnly: true,
+  path: '/',
+  encoding: 'none'
+};
 
 module.exports = {
   path: '/welcome',
   method: 'GET',
+  config: {
+    auth: {
+      mode: 'try'
+    }
+  },
   handler: (req, rep) => {
     const accessUrl = `https://github.com/login/oauth/access_token`;
     Request.post({
@@ -22,15 +36,13 @@ module.exports = {
     }, (err, res, body) => {
       if (err) throw err;
       let parsed = JSON.parse(body);
-      const userToken = {
-        access_token: parsed.access_token
-      };
+      const gitHubAccessToken = parsed.access_token;
       Request.get({
         headers: {
           'User-Agent': 'GitPom',
           // as recommended by the API documentation
           Accept: `application/vnd.github.v3+json`,
-          Authorization: `token ${userToken.access_token}`
+          Authorization: `token ${gitHubAccessToken}`
         },
         url: `https://api.github.com/user`
       }, (err, res, body) => {
@@ -38,11 +50,12 @@ module.exports = {
         parsed = JSON.parse(body);
         const userDetails = {
           userName: parsed.login,
-          avatarUrl: parsed.avatar_url
+          avatarUrl: parsed.avatar_url,
+          accessToken: gitHubAccessToken
         };
-        // set the cookie containing the token, the username and the avatar url
-        req.cookieAuth.set(Object.assign(userToken, userDetails));
-        rep.redirect('/');
+        // make a jwt
+        const webToken = jwt.sign(userDetails, process.env.KEY, {});
+        rep.redirect('/').state('jwt', webToken, cookieOptions);
       });
     });
   }
