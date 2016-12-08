@@ -3,6 +3,7 @@ var startButton = document.querySelector('#startButton');
 var abandonButton = document.querySelector('#abandonButton');
 var completeButton = document.querySelector('#completeButton');
 var restartButton = document.querySelector('#restartButton');
+var issueUrl = document.querySelector('#issue_url').value;
 
 var buttons = document.querySelectorAll('button');
 for (var i = 0; i < buttons.length; i++) {
@@ -50,6 +51,7 @@ function stopTimer () {
 }
 
 function start () {
+  assignUser(issueUrl);
   hideElement(startButton);
   showElement(abandonButton);
   showElement(completeButton);
@@ -96,4 +98,12 @@ function hideElement (elem) {
 
 function showElement (elem) {
   elem.style.display = 'block';
+}
+
+function assignUser (issueUrl) {
+  var assignRequest = new XMLHttpRequest();
+  var body = { issueUrl: issueUrl };
+  var url = '/assign';
+  assignRequest.open('post', url);
+  assignRequest.send(JSON.stringify(body));
 }
