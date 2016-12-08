@@ -33,6 +33,7 @@
     "hapi": "^16.0.1",
     "hapi-auth-cookie": "^6.1.1",
     "inert": "^4.0.3",
+    "marked": "^0.3.6",
     "request": "^2.79.0",
     "vision": "^4.1.1"
   }
