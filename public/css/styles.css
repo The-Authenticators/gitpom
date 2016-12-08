@@ -1,8 +1,20 @@
 body {
   background-color: antique-white;
   font-family: futura;
+  box-sizing: border-box;
+  position: relative;
+  margin: 0;
+  min-height: 100vh;
+}
+
+a {
+  color: limeGreen;
+  text-decoration: none;
+  cursor: pointer;
 }
 /*<-- nav bar >*/
+
+
 
 .nav {
   display: flex;
@@ -14,23 +26,47 @@ body {
 }
 
 .nav__title {
-  width: 300px;
+  width: 200px;
   display: flex;
+  justify-content: space-between;
 }
 
 .nav__logo {
   height: 4rem;
 }
 
+.nav__controls {
+  width: 200px;
+  display: flex;
+  justify-content: space-around;
+}
+
+nav h1 {
+  color: #000;
+}
+
 /*Welcome zone*/
 
 .welcome {
   width: 80%;
-  margin: auto
+  margin: auto;
 }
 
 .welcome__message {
+  text-align: center;
 
+}
+
+.login {
+  margin: 50px;
+  text-align: center;
+}
+
+.login__button {
+  background-color: LimeGreen;
+  padding: 10px;
+  text-decoration: none;
+  color: #fff;
 }
 
 /*repos */
@@ -38,16 +74,51 @@ body {
 .repos {
   width: 80%;
   margin: auto;
+  text-align: center;
+  padding: 50px;
 }
+
+.repos input, select {
+  height: 40px;
+  outline: none;
+  cursor: pointer;
+}
+
+
+.repos label {
+  cursor: pointer;
+}
+
+.issues__container {
+  text-align: center;
+}
+
+.issues__list {
+  padding: 50px;
+}
+
+.issues__list ul {
+  list-style-type: none;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.issues__list-item-link {
+  width: 80vw;
+  display: inline-block;
+  color: tomato;
+}
+
 
 /* footer */
 
 .footer {
   position: absolute;
+  left: 0;
   bottom: 0;
   width: 100%;
-  height: 3rem;
-  background-color: #E88D67;
+  /*height: 3rem;*/
+  background-color: tomato;
   display: flex;
 }
 
@@ -55,4 +126,8 @@ body {
   font-size: 1.2rem;
   margin: 0.7rem auto;
   text-align: center;
+}
+
+.footer a {
+  color: #fff;
 }
