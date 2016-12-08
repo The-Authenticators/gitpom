@@ -5,7 +5,7 @@
   </div>
   <div class="nav__controls">
     {{#if loggedIn}}
-      <a class="nav__username nav__item">{{userName}}</a>
+      <a class="nav__username nav__item" href="https://github.com/{{userName}}" target="blank">@{{userName}}</a>
       <a class="nav__logout nav__item" href="/logout">Log out</a>
     {{else}}
       <a class="nav__login nav__item" href="/login">Log in</a>
