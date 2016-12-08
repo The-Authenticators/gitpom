@@ -14,7 +14,7 @@ module.exports = {
     const queryParams = QueryString.stringify({
       'client_id': process.env.CLIENT_ID,
       'redirect_uri': `${process.env.BASE_URL}/welcome`,
-      'scope': `user public_repo admin:org`
+      'scope': `user public_repo`
     });
     rep.redirect(`${gitUrl}?${queryParams}`);
   }

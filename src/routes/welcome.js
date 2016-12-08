@@ -21,12 +21,29 @@ module.exports = {
       }
     }, (err, res, body) => {
       if (err) throw err;
-      const parsed = JSON.parse(body);
-      const userDetails = {
+      let parsed = JSON.parse(body);
+      const userToken = {
         access_token: parsed.access_token
       };
-      req.cookieAuth.set({access_token: userDetails.access_token});
-      rep.redirect('/');
+      Request.get({
+        headers: {
+          'User-Agent': 'GitPom',
+          // as recommended by the API documentation
+          Accept: `application/vnd.github.v3+json`,
+          Authorization: `token ${userToken.access_token}`
+        },
+        url: `https://api.github.com/user`
+      }, (err, res, body) => {
+        if (err) throw err;
+        parsed = JSON.parse(body);
+        const userDetails = {
+          userName: parsed.login,
+          avatarUrl: parsed.avatar_url
+        };
+        // set the cookie containing the token, the username and the avatar url
+        req.cookieAuth.set(Object.assign(userToken, userDetails));
+        rep.redirect('/');
+      });
     });
   }
 };

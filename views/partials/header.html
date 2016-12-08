@@ -5,7 +5,7 @@
   </div>
   <div class="nav__controls">
     {{#if loggedIn}}
-      <a class="nav__username nav__item">{{current_user}}</a>
+      <a class="nav__username nav__item">{{userName}}</a>
       <a class="nav__logout nav__item" href="/logout">Logout</a>
     {{else}}
       <a class="nav__login nav__item" href="/login">Log in</a>

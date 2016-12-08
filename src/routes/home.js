@@ -16,10 +16,12 @@ module.exports = {
     };
 
     if (req.auth.isAuthenticated) {
-      getRepos('jwhiles', (err, res, body) => {
+      // add cookie info here!
+      getRepos(req.auth.credentials.userName, (err, res, body) => {
         if (err) { throw err; }
+        const currentUser = { userName: req.auth.credentials.userName };
         const repos = { repos: JSON.parse(body) };
-        rep.view('home', Object.assign(homeObj, repos));
+        rep.view('home', Object.assign(homeObj, repos, currentUser));
       });
     } else {
       rep.view('home', homeObj);
