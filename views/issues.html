@@ -1,18 +1,21 @@
 {{> header}}
-<div class="issues__header">
-  What issue do you want to work on now?
-</div>
 <section class="issues__list">
   {{#if issues}}
+  <div class="issues__header">
+    What issue do you want to work on now?
+  </div>
     {{#each issues}}
       <ul class="issues__list-issue">
         <!--- details tbd! --->
         <li class="issues__list-item">
-          <a class="issues__list-item-link" href="{{link}}">{{id}} {{name}}</a>{{assignees_number}}<a class="issues__list-item-button" href="{{link}}">Go to issue</a>
+          <a class="issues__list-item-link" href="{{link}}">{{this.id}} {{this.title}}</a>{{this.assignees.length}}<a class="issues__list-item-button" href="{{this.html_url}}">Go to issue</a>
         </li>
       </ul>
     {{/each}}
   {{else}}
-    <p>No issues have been made for this repo yet. Go to <a class="issues__githubLink" href="{{repoUrl}}">GitHub</a> and make some!</p>
+    <div class="issues__header">
+      Oops...
+    </div>
+    <p>No issues have been made for this repo yet. Go to <a class="issues__githubLink" href="{{this.repoUrl}}">GitHub</a> and make some!</p>
   {{/if}}
 </section>
