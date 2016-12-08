@@ -1,5 +1,7 @@
 {{> header}}
-{{#unless loggedIn}}
+{{#if loggedIn}}
+  <h1 class="welcome__message">Welcome, {{userName}}. What do you want to work on today?</h1>
+{{else}}
   {{> login}}
-{{/unless}}
+{{/if}}
 {{> repos}}

@@ -1,17 +1,19 @@
 {{> header}}
-<section class="issues__list">
+<section class="issues__container">
   {{#if issues}}
   <div class="issues__header">
-    What issue do you want to work on now?
+    Pick an issue to start working on
   </div>
+  <div class="issues__list">
     {{#each issues}}
       <ul class="issues__list-issue">
         <!--- details tbd! --->
         <li class="issues__list-item">
-          <a class="issues__list-item-link" href="{{link}}">{{this.id}} {{this.title}}</a>{{this.assignees.length}}<a class="issues__list-item-button" href="{{this.html_url}}">Go to issue</a>
+          <a class="issues__list-item-link" href="{{link}}">#{{this.id}} {{this.title}}</a>{{this.assignees.length}}<a class="issues__list-item-button" href="{{this.html_url}}">Go to issue</a>
         </li>
       </ul>
     {{/each}}
+    <div class="issues__list">
   {{else}}
     <div class="issues__header">
       Oops...
