@@ -97,3 +97,14 @@ function hideElement (elem) {
 function showElement (elem) {
   elem.style.display = 'block';
 }
+
+// truncate issues__list
+
+var links = document.querySelectorAll('.issues__list-item-link');
+
+for (i = 0; i < links.length; i++) {
+  var t = links[i].textContent;
+  var res = links[i].textContent = t.substr(0, 70);
+  if (t.length > res.length) { res = res.trim() + '...'; }
+  links[i].textContent = res;
+}

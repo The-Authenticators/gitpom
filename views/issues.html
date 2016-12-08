@@ -2,14 +2,15 @@
 <section class="issues__container">
   {{#if issues}}
   <div class="issues__header">
-    Pick an issue to start working on
+    <h2>Pick an issue to start working on</h2>
   </div>
   <div class="issues__list">
     {{#each issues}}
       <ul class="issues__list-issue">
         <!--- details tbd! --->
         <li class="issues__list-item">
-          <a class="issues__list-item-link" href="{{link}}">#{{this.id}} {{this.title}}</a>{{this.assignees.length}}<a class="issues__list-item-button" href="{{this.html_url}}">Go to issue</a>
+          <a class="issues__list-item-link" href="{{link}}">#{{this.id}} {{this.title}}</a>
+          <p>{{this.assignees.length}} assignees <a class="issues__list-item-button" href="{{this.html_url}}">Go to issue</a></p>
         </li>
       </ul>
     {{/each}}

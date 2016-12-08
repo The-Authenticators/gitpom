@@ -1,6 +1,10 @@
 body {
   background-color: antique-white;
   font-family: futura;
+  box-sizing: border-box;
+  position: relative;
+  margin: 0;
+  min-height: 100vh;
 }
 
 a {
@@ -34,7 +38,7 @@ a {
 .nav__controls {
   width: 200px;
   display: flex;
-  justify-content: space-around;;
+  justify-content: space-around;
 }
 
 nav h1 {
@@ -55,6 +59,7 @@ nav h1 {
 
 .login {
   margin: 50px;
+  text-align: center;
 }
 
 .login__button {
@@ -90,12 +95,18 @@ nav h1 {
 
 .issues__list {
   padding: 50px;
-
 }
 
 .issues__list ul {
   list-style-type: none;
   text-align: left;
+  margin-bottom: 30px;
+}
+
+.issues__list-item-link {
+  width: 80vw;
+  display: inline-block;
+  color: tomato;
 }
 
 
@@ -103,10 +114,11 @@ nav h1 {
 
 .footer {
   position: absolute;
+  left: 0;
   bottom: 0;
   width: 100%;
-  height: 3rem;
-  background-color: #E88D67;
+  /*height: 3rem;*/
+  background-color: tomato;
   display: flex;
 }
 
