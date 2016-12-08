@@ -13,6 +13,15 @@ for (var i = 0; i < buttons.length; i++) {
   };
 }
 
+var links = document.querySelectorAll('.issues__list-item-link');
+
+for (i = 0; i < links.length; i++) {
+  var t = links[i].textContent;
+  var res = links[i].textContent = t.substr(0, 70);
+  if (t.length > res.length) { res = res.trim() + '...'; }
+  links[i].textContent = res;
+}
+
 var sessionLength = 25 * 60 * 1000;
 var currentTime;
 var timeRemaining;

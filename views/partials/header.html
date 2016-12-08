@@ -1,12 +1,12 @@
 <nav class="nav">
   <div class="nav__title">
     <a href="/"><img class="nav__logo" src="/images/pom_logo.png" alt="GitPom logo" title="GitPom" /></a>
-    <h1>GitPom</h1>
+    <a href="/" title="GitPom"><h1>GitPom</h1></a>
   </div>
   <div class="nav__controls">
     {{#if loggedIn}}
       <a class="nav__username nav__item">{{userName}}</a>
-      <a class="nav__logout nav__item" href="/logout">Logout</a>
+      <a class="nav__logout nav__item" href="/logout">Log out</a>
     {{else}}
       <a class="nav__login nav__item" href="/login">Log in</a>
     {{/if}}
