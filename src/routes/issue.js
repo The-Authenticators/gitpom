@@ -22,7 +22,7 @@ module.exports = {
       getIssueDetails(Object.assign(req.auth.credentials, issueUrl), (err, res, body) => {
         if (err) throw err;
         const issueDetails = { issueDetails: JSON.parse(body) };
-        const parsedBody = { parsedBody: marked(issueDetails.issueDetails.body) };
+        const parsedBody = { parsedBody: (marked(issueDetails.issueDetails.body) || '&nbsp;No description for this issue') };
         const parsedDate = { parsedDate: issueDetails.issueDetails.created_at.replace(/T/, ' ').replace(/Z/, '') };
         rep.view('issue_details', Object.assign(homeObj, req.auth.credentials, issueDetails, parsedBody, parsedDate));
       });
