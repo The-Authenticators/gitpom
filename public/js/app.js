@@ -4,6 +4,7 @@ var abandonButton = document.querySelector('#abandonButton');
 var completeButton = document.querySelector('#completeButton');
 var restartButton = document.querySelector('#restartButton');
 var issueUrl = document.querySelector('#issue_url').value;
+var bodyStr = JSON.stringify({ issueUrl: issueUrl });
 
 var buttons = document.querySelectorAll('.cta_button');
 for (var i = 0; i < buttons.length; i++) {
@@ -76,7 +77,7 @@ function startTimer () {
 
 function complete () {
   stopTimer();
-  // sendCompleteRequest();
+  completeRequest(issueUrl);
 }
 
 function abandon () {
@@ -111,8 +112,14 @@ function showElement (elem) {
 
 function assignUser (issueUrl) {
   var assignRequest = new XMLHttpRequest();
-  var body = { issueUrl: issueUrl };
   var url = '/assign';
   assignRequest.open('post', url);
-  assignRequest.send(JSON.stringify(body));
+  assignRequest.send(bodyStr);
+}
+
+function completeRequest (issueUrl) {
+  var request = new XMLHttpRequest();
+  var url = '/complete';
+  request.open('post', url);
+  request.send(bodyStr);
 }

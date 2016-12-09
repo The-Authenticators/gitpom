@@ -6,5 +6,6 @@ module.exports = [
   require('./repo.js'),
   require('./static.js'),
   require('./issue.js'),
-  require('./assign.js')
+  require('./assign.js'),
+  require('./complete.js')
 ];
