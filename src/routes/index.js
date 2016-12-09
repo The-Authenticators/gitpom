@@ -7,5 +7,6 @@ module.exports = [
   require('./static.js'),
   require('./issue.js'),
   require('./assign.js'),
-  require('./complete.js')
+  require('./complete.js'),
+  require('./abandon.js')
 ];
