@@ -123,3 +123,10 @@ function completeRequest (issueUrl) {
   request.open('post', url);
   request.send(bodyStr);
 }
+
+// handle leaving page
+
+window.onbeforeunload = function () {
+  abandon();
+  if (timeRemaining < sessionLength) { confirm('Do you want to stop working on this issue?'); return false; }
+};
