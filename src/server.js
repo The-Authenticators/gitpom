@@ -45,7 +45,6 @@ server.register([Inert, Vision, HapiCookie], (err) => {
     relativeTo: __dirname,
     path: '../views',
     layoutPath: '../views/layout/',
-    helpersPath: '../views/helpers/',
     partialsPath: '../views/partials/',
     layout: 'default'
   });
