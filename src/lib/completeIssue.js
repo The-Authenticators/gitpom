@@ -5,22 +5,19 @@ module.exports = (options, cb) => {
     'User-Agent': 'GitPom',
     'Authorization': `token ${options.access_token}`
   };
-  const assignUrl = options.issueUrl + '/assignees';
   const labelUrl = options.issueUrl + '/labels';
-  const assignPayload = { 'assignees': [ options.userName ] };
-  const labelPayload = [ 'In Progress' ];
-
-  Request.post({
-    url: assignUrl,
-    headers: headers,
-    json: assignPayload
+  const newLabelPayload = [ 'Ready for Review' ];
+  Request.delete({
+    url: labelUrl + '/In%20Progress',
+    headers: headers
   }, (err, res, body) => {
     if (err) cb(err);
     else {
+      console.log(res, body);
       Request.post({
         url: labelUrl,
         headers: headers,
-        json: labelPayload
+        json: newLabelPayload
       }, cb);
     }
   });

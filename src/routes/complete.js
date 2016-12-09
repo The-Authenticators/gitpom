@@ -1,8 +1,8 @@
-const assignUser = require('../lib/assignUser');
+const completeIssue = require('../lib/completeIssue');
 
 module.exports = {
   method: 'POST',
-  path: '/assign',
+  path: '/complete',
   config: {
     auth: {
       mode: 'try',
@@ -13,8 +13,9 @@ module.exports = {
     const body = JSON.parse(req.payload);
     const issueDetails = { issueUrl: body.issueUrl };
     if (req.auth.isAuthenticated) {
-      assignUser(Object.assign(req.auth.credentials, issueDetails), (err, res, body) => {
+      completeIssue(Object.assign(req.auth.credentials, issueDetails), (err, res, body) => {
         if (err) throw err;
+        rep.redirect('/');
       });
     }
   }
