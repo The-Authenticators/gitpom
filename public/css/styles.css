@@ -61,10 +61,13 @@ nav h1 {
 }
 
 .cta_button {
+  display: block;
   background-color: limeGreen;
   padding: 10px;
   text-decoration: none;
   color: #fff;
+  width: 100px;
+  margin: 0 auto;
 }
 
 /*repos */
