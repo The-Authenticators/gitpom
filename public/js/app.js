@@ -5,7 +5,7 @@ var completeButton = document.querySelector('#completeButton');
 var restartButton = document.querySelector('#restartButton');
 var issueUrl = document.querySelector('#issue_url').value;
 
-var buttons = document.querySelectorAll('button');
+var buttons = document.querySelectorAll('.cta_button');
 for (var i = 0; i < buttons.length; i++) {
   var button = buttons[i];
   button.onclick = function () {
