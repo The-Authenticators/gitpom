@@ -5,7 +5,7 @@ module.exports = (options, cb) => {
     'User-Agent': 'GitPom',
     'Authorization': `token ${options.access_token}`
   };
-  const assignUrl = options.issueUrl + '/asignees';
+  const assignUrl = options.issueUrl + '/assignees';
   const labelUrl = options.issueUrl + '/labels';
   const assignPayload = { 'assignees': [ options.userName ] };
   const labelPayload = [ 'In Progress' ];
