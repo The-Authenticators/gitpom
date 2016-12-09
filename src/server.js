@@ -42,11 +42,11 @@ server.register([Inert, Vision, HapiCookie], (err) => {
     engines: {
       html: require('handlebars')
     },
-    relativeTo: __dirname,
-    path: '../views',
-    layoutPath: '../views/layout/',
-    helpersPath: '../views/helpers/',
-    partialsPath: '../views/partials/',
+    relativeTo: Path.join(__dirname, `../views`) ,
+    path: '.',
+    layoutPath: 'layout/',
+    helpersPath: 'helpers/',
+    partialsPath: 'partials/',
     layout: 'default'
   });
   server.auth.strategy('session', 'cookie', cookieOptions);
