@@ -8,6 +8,7 @@ A pomodoro timer which integrates with GitHub issues for mad efficiency and cool
 - Clone this repo
 - npm install
 - Add the config.env variables (ask us!)
+- nodemon src/start.js
 
 ## UX main features   
 
