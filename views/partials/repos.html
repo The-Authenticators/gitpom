@@ -6,7 +6,7 @@
     <select name="repo" class="repos__select" id="select_repo">
       {{#each repos}}
       <option value="{{this.owner.login}} {{this.name}} {{this.url}}" class="repos__select-option">{{this.name}}
-        {{#if this.open_issues_count}} - {{this.open_issues_count}} open issues{{/if}}
+        {{#if this.open_issues_count}} - Open issues: {{this.open_issues_count}} {{/if}}
       </option>
       {{/each}}
     </select>
