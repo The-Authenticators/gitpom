@@ -15,7 +15,6 @@ module.exports = {
     if (req.auth.isAuthenticated) {
       completeIssue(Object.assign(req.auth.credentials, issueDetails), (err, res, body) => {
         if (err) throw err;
-        console.log(res, body);
         rep.redirect('/');
       });
     }

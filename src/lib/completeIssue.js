@@ -3,12 +3,12 @@ const Request = require('request');
 module.exports = (options, cb) => {
   const headers = {
     'User-Agent': 'GitPom',
-    'Authorisation': `token ${options.access_token}`
+    'Authorization': `token ${options.access_token}`
   };
   const labelUrl = options.issueUrl + '/labels';
   const newLabelPayload = [ 'Ready for Review' ];
   Request.delete({
-    url: options.issueUrl,
+    url: labelUrl + '/In%20Progress',
     headers: headers
   }, (err, res, body) => {
     if (err) cb(err);
