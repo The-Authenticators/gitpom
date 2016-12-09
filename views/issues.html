@@ -9,8 +9,8 @@
       <ul class="issues__list-issue">
         <!--- details tbd! --->
         <li class="issues__list-item">
-          <a class="issues__list-item-link" href="{{link}}">#{{this.id}} {{this.title}}</a>
-          <p>{{this.assignees.length}} assignees <a class="issues__list-item-button" href="{{link}}">Go to issue</a></p>
+          <a class="issues__list-item-link" href="/issue?url={{this.url}}">#{{this.number}} {{this.title}}</a>
+          <p>{{this.assignees.length}} assignees <a class="issues__list-item-button" href="/issue?url={{this.url}}">Go to issue</a></p>
         </li>
       </ul>
     {{/each}}

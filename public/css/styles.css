@@ -60,8 +60,8 @@ nav h1 {
   text-align: center;
 }
 
-.login__button {
-  background-color: LimeGreen;
+.cta_button {
+  background-color: limeGreen;
   padding: 10px;
   text-decoration: none;
   color: #fff;
@@ -105,6 +105,10 @@ nav h1 {
   width: 80vw;
   display: inline-block;
   color: tomato;
+}
+
+.timer__time {
+  font-size: 50px;
 }
 
 
