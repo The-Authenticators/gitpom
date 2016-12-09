@@ -3,7 +3,11 @@
 ## Brief description
 A pomodoro timer which integrates with GitHub issues for mad efficiency and cool stuff.
 
-# Instructions
+## Instructions
+
+- Clone this repo
+- npm install
+- Add the config.env variables (ask us!)
 
 ## UX main features   
 
