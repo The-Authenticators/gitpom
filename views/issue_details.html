@@ -4,9 +4,11 @@
 <p class="issue_creator">Created by {{issueDetails.user.login}} at {{parsedDate}}</p>
 <input type="hidden" id="issue_url" value="{{issueDetails.url}}">
 <input type="hidden" id="username" value="{{userName}}">
-<div class="issue_description">
-  {{{parsedBody}}}
-</div>
+{{#if parsedBody}}
+  <div class="issue_description">
+    {{{parsedBody}}}
+  </div>
+{{/if}}
 
 {{> timer}}
 </div>
