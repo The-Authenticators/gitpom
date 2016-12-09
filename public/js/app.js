@@ -3,6 +3,7 @@ var startButton = document.querySelector('#startButton');
 var abandonButton = document.querySelector('#abandonButton');
 var completeButton = document.querySelector('#completeButton');
 var restartButton = document.querySelector('#restartButton');
+var issueUrl = document.querySelector('#issue_url').value;
 
 var buttons = document.querySelectorAll('button');
 for (var i = 0; i < buttons.length; i++) {
@@ -10,6 +11,15 @@ for (var i = 0; i < buttons.length; i++) {
   button.onclick = function () {
     handleInput(this.id);
   };
+}
+
+var links = document.querySelectorAll('.issues__list-item-link');
+
+for (i = 0; i < links.length; i++) {
+  var t = links[i].textContent;
+  var res = links[i].textContent = t.substr(0, 70);
+  if (t.length > res.length) { res = res.trim() + '...'; }
+  links[i].textContent = res;
 }
 
 var sessionLength = 25 * 60 * 1000;
@@ -50,6 +60,7 @@ function stopTimer () {
 }
 
 function start () {
+  assignUser(issueUrl);
   hideElement(startButton);
   showElement(abandonButton);
   showElement(completeButton);
@@ -98,13 +109,10 @@ function showElement (elem) {
   elem.style.display = 'block';
 }
 
-// truncate issues__list
-
-var links = document.querySelectorAll('.issues__list-item-link');
-
-for (i = 0; i < links.length; i++) {
-  var t = links[i].textContent;
-  var res = links[i].textContent = t.substr(0, 70);
-  if (t.length > res.length) { res = res.trim() + '...'; }
-  links[i].textContent = res;
+function assignUser (issueUrl) {
+  var assignRequest = new XMLHttpRequest();
+  var body = { issueUrl: issueUrl };
+  var url = '/assign';
+  assignRequest.open('post', url);
+  assignRequest.send(JSON.stringify(body));
 }
