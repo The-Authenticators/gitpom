@@ -160,7 +160,7 @@ nav h1 {
 
 .issue_description {
   background-color: rgba(50,205,50,0.2);
-  padding: 10px 0;
+  padding: 10px 40px;
   text-align: left;
-  border-radius: 3px; 
+  border-radius: 3px;
 }
