@@ -25,7 +25,7 @@ A pomodoro timer which integrates with GitHub issues for mad efficiency and cool
     - keep working (i.e. extend the timer and label changed to 'on-hold')
 - user is redirected to homepage when closing or abandoning an issue; else they stay on the pomodoro page
 
-![Our app plan](./readme-images/app_features.JPG)
+![Our app plan](./readme-images/app_features.png)
 
 ## Technical features
 #### Project folder structure
