@@ -12,7 +12,7 @@ module.exports = {
   },
   handler: (req, rep) => {
     const homeObj = {
-      title: 'GitPom - welcome!',
+      title: 'GitPom - work mode',
       loggedIn: req.auth.isAuthenticated
     };
 
