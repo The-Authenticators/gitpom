@@ -11,9 +11,9 @@ module.exports = {
   },
   handler: (req, rep) => {
     const body = JSON.parse(req.payload);
-    const assignDetails = { assignUrl: `${body.issueUrl}/assignees` };
+    const issueDetails = { issueUrl: body.issueUrl };
     if (req.auth.isAuthenticated) {
-      assignUser(Object.assign(req.auth.credentials, assignDetails), (err, res, body) => {
+      assignUser(Object.assign(req.auth.credentials, issueDetails), (err, res, body) => {
         if (err) throw err;
         console.log(res, body);
       });
