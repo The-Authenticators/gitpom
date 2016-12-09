@@ -20,7 +20,7 @@ A pomodoro timer which integrates with GitHub issues for mad efficiency and cool
 - user can close the issue at any time before timeout and/or add a comment (two separate buttons/inputs)
 - Timer counts down
 - On timeout the user can:   
-    - close the issue ('in-progress' label removed)
+    - complete the issue ('in-progress' label removed)
     - abandon the issue (unassign yourself and label removed)
     - keep working (i.e. extend the timer and label changed to 'on-hold')
 - user is redirected to homepage when closing or abandoning an issue; else they stay on the pomodoro page
@@ -50,7 +50,7 @@ A pomodoro timer which integrates with GitHub issues for mad efficiency and cool
     - user_options.html
   - home.html
   - issues.html
-  - pomodoro.html
+  - issue_details.html
 - tests
   - tape
     - tape-tests.js
