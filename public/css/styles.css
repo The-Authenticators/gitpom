@@ -129,3 +129,12 @@ nav h1 {
 .footer a {
   color: #fff;
 }
+
+ /*issue*/
+
+.issue {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  padding: 50px;
+}
