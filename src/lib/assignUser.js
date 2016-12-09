@@ -1,14 +1,27 @@
 const Request = require('request');
 
 module.exports = (options, cb) => {
-  const payload = { 'assignees': [ options.userName ] };
+  const headers = {
+    'User-Agent': 'GitPom',
+    'Authorization': `token ${options.access_token}`
+  };
+  const assignUrl = options.issueUrl + '/asignees';
+  const labelUrl = options.issueUrl + '/labels';
+  const assignPayload = { 'assignees': [ options.userName ] };
+  const labelPayload = [ 'In Progress' ];
 
   Request.post({
-    url: options.assignUrl,
-    headers: {
-      'User-Agent': 'GitPom',
-      'Authorization': `token ${options.access_token}`
-    },
-    json: payload
-  }, cb);
+    url: assignUrl,
+    headers: headers,
+    json: assignPayload
+  }, (err, res, body) => {
+    if (err) cb(err);
+    else {
+      Request.post({
+        url: labelUrl,
+        headers: headers,
+        json: labelPayload
+      }, cb);
+    }
+  });
 };
