@@ -87,25 +87,7 @@ nav h1 {
   cursor: pointer;
 }
 
-.issues__container {
-  text-align: center;
-}
 
-.issues__list {
-  padding: 50px;
-}
-
-.issues__list ul {
-  list-style-type: none;
-  text-align: left;
-  margin-bottom: 30px;
-}
-
-.issues__list-item-link {
-  width: 80vw;
-  display: inline-block;
-  color: tomato;
-}
 
 .timer__time {
   font-size: 50px;
@@ -141,4 +123,30 @@ nav h1 {
   margin: auto;
   text-align: center;
   padding: 50px;
+}
+
+.issues__container {
+  text-align: center;
+}
+
+.issues__list {
+  padding: 50px;
+}
+
+.issues__list ul {
+  list-style-type: none;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.issues__list-item-link {
+  width: 80vw;
+  display: inline-block;
+  color: tomato;
+  font-size: 1.5rem;
+}
+
+.issues__list-item {
+  padding-bottom: 0.4rem;
+  border-bottom: solid grey 1.2px;
 }
