@@ -11,7 +11,7 @@ module.exports = {
   },
   handler: (req, rep) => {
     const homeObj = {
-      title: 'GitPom - welcome!',
+      title: 'GitPom - view issues!',
       loggedIn: req.auth.isAuthenticated
     };
 
