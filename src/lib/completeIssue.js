@@ -13,7 +13,6 @@ module.exports = (options, cb) => {
   }, (err, res, body) => {
     if (err) cb(err);
     else {
-      console.log(res, body);
       Request.post({
         url: labelUrl,
         headers: headers,
