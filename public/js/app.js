@@ -116,3 +116,10 @@ function assignUser (issueUrl) {
   assignRequest.open('post', url);
   assignRequest.send(JSON.stringify(body));
 }
+
+// handle leaving page
+
+window.onbeforeunload = function () {
+  abandon();
+  if (timeRemaining < sessionLength) { confirm('Do you want to stop working on this issue?'); return false; }
+};
