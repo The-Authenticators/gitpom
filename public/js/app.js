@@ -82,7 +82,7 @@ function complete () {
 
 function abandon () {
   stopTimer();
-  // sendAbandonRequest();
+  abandonRequest(issueUrl);
 }
 
 function restart () {
@@ -120,6 +120,13 @@ function assignUser (issueUrl) {
 function completeRequest (issueUrl) {
   var request = new XMLHttpRequest();
   var url = '/complete';
+  request.open('post', url);
+  request.send(bodyStr);
+}
+
+function abandonRequest (issueUrl) {
+  var request = new XMLHttpRequest();
+  var url = '/abandon';
   request.open('post', url);
   request.send(bodyStr);
 }
