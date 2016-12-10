@@ -1,5 +1,17 @@
-<p id="timeDisplay" class="timer__time">25:00</p>
+<!-- <p id="timeDisplay" class="timer__time">25:00</p> -->
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="200" height="200">
+  <linearGradient id="lg" x1="0.5" y1="1" x2="0.5" y2="0">
+      <stop offset="0%" stop-opacity="1" stop-color="limegreen"/>
+      <stop id="svg1" offset="100%" stop-opacity="1" stop-color="limegreen" />
+      <stop id="svg2" offset="100%" stop-opacity="0" stop-color="limegreen" />
+      <stop offset="100%" stop-opacity="0" stop-color="limegreen"/>
+  </linearGradient>
+  <circle cx="50" cy="50" r="45" fill="url(#lg)" stroke="limegreen" stroke-width="5"/>
+  <text id="timeDisplay" text-anchor="middle" alignment-baseline="middle" x="50" y="50" font-family="Didact Gothic" font-size="25">25:00</text>
+</svg>
+
 <a class="cta_button" id="startButton">Start work</a>
 <a class="cta_button" id="completeButton" style="display: none">Finish work</a>
-<a  class="cta_button" id="abandonButton" style="display: none">Abandon</a>
-<a  class="cta_button" id="restartButton" style="display: none">Reset timer</a>
+<a class="cta_button" id="abandonButton" style="display: none">Abandon</a>
+<a class="cta_button" id="restartButton" style="display: none">Reset timer</a>

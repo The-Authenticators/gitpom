@@ -3,6 +3,8 @@ var startButton = document.querySelector('#startButton');
 var abandonButton = document.querySelector('#abandonButton');
 var completeButton = document.querySelector('#completeButton');
 var restartButton = document.querySelector('#restartButton');
+var svg1 = document.querySelector('#svg1');
+var svg2 = document.querySelector('#svg2');
 var issueUrl = document.querySelector('#issue_url').value;
 var bodyStr = JSON.stringify({ issueUrl: issueUrl });
 
@@ -91,7 +93,9 @@ function restart () {
 }
 
 function updateDOM () {
-  timeDisplay.innerText = formatTime(timeRemaining);
+  timeDisplay.textContent = formatTime(timeRemaining);
+  svg1.attributes.offset.value = 1 - timeRemaining / sessionLength;
+  svg2.attributes.offset.value = 1 - timeRemaining / sessionLength;
 }
 
 function formatTime (time) {
@@ -120,6 +124,9 @@ function assignUser (issueUrl) {
 function completeRequest (issueUrl) {
   var request = new XMLHttpRequest();
   var url = '/complete';
+  request.onreadystatechange = function () {
+    console.log(request.status);
+  };
   request.open('post', url);
   request.send(bodyStr);
 }
@@ -127,13 +134,18 @@ function completeRequest (issueUrl) {
 function abandonRequest (issueUrl) {
   var request = new XMLHttpRequest();
   var url = '/abandon';
+  // request.onreadystatechange = function () {
+  //   if (request.readyState === XMLHttpRequest.DONE) {
+  //     window.location.href = '/';
+  //   }
+  // };
   request.open('post', url);
   request.send(bodyStr);
 }
 
 // handle leaving page
 
-window.onbeforeunload = function () {
-  abandon();
-  if (timeRemaining < sessionLength) { confirm('Do you want to stop working on this issue?'); return false; }
-};
+// window.onbeforeunload = function () {
+//   abandon();
+//   if (timeRemaining < sessionLength) { confirm('Do you want to stop working on this issue?'); return false; }
+// };
