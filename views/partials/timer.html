@@ -1,5 +1,3 @@
-<!-- <p id="timeDisplay" class="timer__time">25:00</p> -->
-
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="200" height="200">
   <linearGradient id="lg" x1="0.5" y1="1" x2="0.5" y2="0">
       <stop offset="0%" stop-opacity="1" stop-color="limegreen"/>
@@ -12,6 +10,12 @@
 </svg>
 
 <a class="cta_button" id="startButton">Start work</a>
-<a class="cta_button" id="completeButton" style="display: none">Finish work</a>
-<a class="cta_button" id="abandonButton" style="display: none">Abandon</a>
+<form action="/complete" method="post">
+  <input type="hidden" name="issueUrl" value="{{issueDetails.url}}">
+  <button id="completeButton" class="cta_button" style="display: none">Finish work</button>
+</form>
+<form action="/abandon" method="post">
+  <input type="hidden" name="issueUrl" value="{{issueDetails.url}}">
+  <button id="abandonButton" class="cta_button" style="display: none">Abandon</button>
+</form>
 <a class="cta_button" id="restartButton" style="display: none">Reset timer</a>
