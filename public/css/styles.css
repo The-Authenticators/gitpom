@@ -67,7 +67,9 @@ nav h1 {
   text-decoration: none;
   color: #fff;
   width: 120px;
-  margin: 0 auto;
+  margin: 0 auto 10px auto;
+  border-width: 0;
+  border-style: none;
 }
 
 /*repos */
