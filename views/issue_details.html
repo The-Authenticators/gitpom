@@ -1,7 +1,7 @@
 {{> header}}
 <div class='issue'>
-<h2 class="issue_title">#{{issueDetails.number}}: {{issueDetails.title}}</h2>
-<p class="issue_creator">Created by {{issueDetails.user.login}} at {{parsedDate}}</p>
+<h2 class="issue_title"><a href="{{issueDetails.html_url}}" target="blank">#{{issueDetails.number}}: {{issueDetails.title}}</a></h2>
+<p class="issue_creator">Created by <a href="https://github.com/{{issueDetails.user.login}}" target="blank">{{issueDetails.user.login}}</a> at {{parsedDate}}</p>
 <input type="hidden" id="issue_url" value="{{issueDetails.url}}">
 <input type="hidden" id="username" value="{{userName}}">
 {{#if parsedBody}}

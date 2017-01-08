@@ -134,6 +134,14 @@ nav h1 {
   padding: 50px;
 }
 
+.issue_title {
+  color: tomato;
+}
+
+.issue_title a {
+  color: tomato;
+}
+
 .issues__container {
   text-align: center;
 }
