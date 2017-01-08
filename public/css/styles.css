@@ -60,7 +60,7 @@ nav h1 {
   text-align: center;
 }
 
-.cta_button {
+.cta_button, .cta_button:hover, .cta_button:active, .cta_button:visited {
   display: block;
   background-color: limeGreen;
   padding: 10px;
@@ -70,6 +70,10 @@ nav h1 {
   margin: 0 auto 10px auto;
   border-width: 0;
   border-style: none;
+  cursor: pointer;
+  outline: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 /*repos */
