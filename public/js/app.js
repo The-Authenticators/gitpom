@@ -33,8 +33,8 @@ var timer;
 function handleInput (id) {
   var buttons = {
     startButton: start,
-    completeButton: complete,
-    abandonButton: abandon,
+    // completeButton: complete,
+    // abandonButton: abandon,
     restartButton: restart
   };
 

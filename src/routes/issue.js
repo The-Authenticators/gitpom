@@ -12,7 +12,7 @@ module.exports = {
   },
   handler: (req, rep) => {
     const homeObj = {
-      title: 'GitPom - work mode',
+      // title: 'GitPom - work mode',
       loggedIn: req.auth.isAuthenticated
     };
 
@@ -24,7 +24,7 @@ module.exports = {
         const issueDetails = { issueDetails: JSON.parse(body) };
         const parsedBody = { parsedBody: (marked(issueDetails.issueDetails.body) || false) };
         const parsedDate = { parsedDate: issueDetails.issueDetails.created_at.replace(/T/, ' ').replace(/Z/, '') };
-        rep.view('issue_details', Object.assign(homeObj, req.auth.credentials, issueDetails, parsedBody, parsedDate));
+        rep.view('issue_details', Object.assign(homeObj, req.auth.credentials, issueDetails, parsedBody, parsedDate, {title: `${issueDetails.issueDetails.title} - work mode`}));
       });
     }
   }

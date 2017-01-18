@@ -10,11 +10,11 @@ module.exports = {
     }
   },
   handler: (req, rep) => {
-    const body = JSON.parse(req.payload);
-    const issueDetails = { issueUrl: body.issueUrl };
+    const issueDetails = req.payload;
     if (req.auth.isAuthenticated) {
       abandonIssue(Object.assign(req.auth.credentials, issueDetails), (err, res, body) => {
         if (err) throw err;
+        rep.redirect('/');
       });
     }
   }

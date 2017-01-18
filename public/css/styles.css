@@ -60,14 +60,20 @@ nav h1 {
   text-align: center;
 }
 
-.cta_button {
+.cta_button, .cta_button:hover, .cta_button:active, .cta_button:visited {
   display: block;
   background-color: limeGreen;
   padding: 10px;
   text-decoration: none;
   color: #fff;
   width: 120px;
-  margin: 0 auto;
+  margin: 0 auto 10px auto;
+  border-width: 0;
+  border-style: none;
+  cursor: pointer;
+  outline: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 /*repos */
@@ -126,6 +132,14 @@ nav h1 {
   margin: auto;
   text-align: center;
   padding: 50px;
+}
+
+.issue_title {
+  color: tomato;
+}
+
+.issue_title a {
+  color: tomato;
 }
 
 .issues__container {
